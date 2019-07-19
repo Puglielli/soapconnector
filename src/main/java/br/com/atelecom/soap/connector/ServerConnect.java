@@ -29,14 +29,14 @@ public class ServerConnect {
         this.timeout = timeout;
     }
 
-    private HttpURLConnection createConnection() throws IOException {
-        URL url = new URL(this.endpoint);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestProperty(AUTHORIZATION_HEADER, basicAuthentication());
-        conn.setDoOutput(true);
-        conn.setReadTimeout(this.timeout);
-        return conn;
-    }
+        private HttpURLConnection createConnection() throws IOException {
+            URL url = new URL(this.endpoint);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty(AUTHORIZATION_HEADER, basicAuthentication());
+            conn.setDoOutput(true);
+            conn.setReadTimeout(this.timeout);
+            return conn;
+        }
 
     private String basicAuthentication(){
         return BASIC + " " + Base64.getEncoder().encodeToString((this.user + ":" +
